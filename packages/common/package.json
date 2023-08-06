@@ -27,6 +27,7 @@
     "@storybook/react-vite": "^7.2.1",
     "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.2.15",
+    "chromatic": "^6.20.0",
     "css-loader": "^6.8.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -44,5 +45,7 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@aurora/common@1.0.0"
 }
