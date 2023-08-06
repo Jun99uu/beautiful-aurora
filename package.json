@@ -1,0 +1,13 @@
+{
+  "name": "aurora",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@8.5.1",
+  "scripts": {
+    "common": "pnpm -F @aurora/common",
+    "client": "pnpm -F @aurora/client",
+    "setting": "pnpm -r setting"
+  },
+  "keywords": [],
+  "author": ""
+}
