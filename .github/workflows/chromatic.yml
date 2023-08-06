@@ -1,0 +1,32 @@
+name: Chromatic Deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/common/**"
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/common
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pnpm install --recursive
+
+      - name: Build Storybook
+        run: pnpm run build-storybook
+
+      - name: Deploy to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.STORYBOOK_TOKEN }}
+          buildScriptName: false
