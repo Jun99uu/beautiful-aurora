@@ -1,0 +1,114 @@
+@import "../../../scss/var.scss";
+
+.slider-container {
+  max-width: 305px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include Body2;
+    color: $on-surface-muted;
+  }
+
+  .slider-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+
+    // 실제 슬라이더
+    input[type="range"] {
+      -webkit-appearance: none; // 기본 스타일 제거 (크롬, 사파리)
+      appearance: none;
+      width: 100%;
+      height: 12px;
+      border-radius: 30px;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+
+      position: relative;
+      z-index: 2;
+
+      // thumb (슬라이더 핸들)
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        @include set-vw(width, 28px);
+        aspect-ratio: 1;
+        background-color: white;
+        border-radius: 100%;
+        border: 1px solid $outline;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          transform: scale(1.08);
+        }
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+
+      &::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.15s ease-in-out;
+        &:hover {
+          background-color: #45a049;
+        }
+      }
+
+      // 슬라이더 프로그레스 표시 (크롬, 사파리)
+      &::-webkit-slider-runnable-track {
+        background-color: transparent;
+      }
+
+      // 슬라이더 프로그레스 표시 (파이어폭스)
+      &::-moz-range-progress {
+        background-color: transparent;
+      }
+
+      &::-moz-range-track {
+        background-color: transparent;
+      }
+
+      // 파이어폭스에 대한 focus 스타일 제거
+      &::-moz-focus-outer {
+        border: 0;
+      }
+    }
+
+    .slider-background-left {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background: $primary-gradient;
+
+      border-radius: 30px 0px 0px 30px;
+    }
+
+    .slider-background-right {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $on-surface-disabled;
+
+      border-radius: 30px;
+    }
+  }
+}
