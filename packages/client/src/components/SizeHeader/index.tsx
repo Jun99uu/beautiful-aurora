@@ -1,7 +1,7 @@
 import { Button, TextInput } from "@aurora/common";
 import "./sizeHeader.scss";
 import { useAtom } from "jotai";
-import { sizeState } from "../store/sizeAtom";
+import { sizeState } from "@store/sizeAtom";
 import { ChangeEvent } from "react";
 import { Clipboard } from "@/assets/svgIcon";
 
