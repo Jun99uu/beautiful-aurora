@@ -2,11 +2,13 @@ import { Button, TextInput } from "@aurora/common";
 import "./sizeHeader.scss";
 import { useAtom } from "jotai";
 import { sizeState } from "@store/sizeAtom";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { Clipboard } from "@/assets/svgIcon";
+import { Modal } from "../Popup";
 
 const SizeHeader = () => {
   const [sizes, setSizes] = useAtom(sizeState);
+  const [open, setOpen] = useState(false);
 
   const extractNumbers = (input: string): string => {
     const result = input.match(/\d+/g);
@@ -44,8 +46,17 @@ const SizeHeader = () => {
     }
   };
 
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="size-header-wrapper">
+      {open && <Modal handleClose={closeModal} />}
       <ul>
         <li className="caption">size</li>
         <li>
@@ -67,7 +78,7 @@ const SizeHeader = () => {
         </li>
         <li className="unit">px</li>
       </ul>
-      <Button size="small" style={{ gap: "15px" }}>
+      <Button size="small" style={{ gap: "15px" }} onClick={openModal}>
         <Clipboard />
         <span>Export Code</span>
       </Button>

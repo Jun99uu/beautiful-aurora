@@ -1,0 +1,63 @@
+@import "../../styles/var.scss";
+
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  background: rgba(41, 41, 41, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  animation: bgOpen 0.6s forwards;
+}
+
+.modal-wrapper {
+  position: relative;
+  background-color: white;
+  @include set-vw(border-radius, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include set-vw(gap, 5px);
+  @include set-pair-vw(padding, 70px, 100px);
+
+  animation: modalOpen 0.6s forwards;
+
+  .x {
+    position: absolute;
+    @include set-vw(top, 25px);
+    @include set-vw(right, 30px);
+    @include set-vw(font-size, 24px);
+    color: $on-surface-default;
+    cursor: pointer;
+  }
+}
+
+@keyframes bgOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
