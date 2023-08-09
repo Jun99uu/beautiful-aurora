@@ -31,7 +31,14 @@ jobs:
         run: ls -la
 
       - name: Run Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@v1 # Update to the latest version of Chromatic action
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.STORYBOOK_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Deploy to Chromatic
+      #   uses: chromaui/action@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     projectToken: ${{ secrets.STORYBOOK_TOKEN }}
+      #     buildScriptName: "build-storybook"
