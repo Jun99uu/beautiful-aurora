@@ -1,5 +1,29 @@
-div {
-  box-sizing: border-box;
+@import "../../../scss/var.scss";
+
+.custom-picker-border {
+  position: relative;
+  overflow: hidden;
+
+  @include set-vw(padding, 2.4px);
+  @include set-vw(border-radius, 12px);
+  @include set-vw(height, 64px);
+  @include set-vw(width, 363px);
+
+  &::before {
+    content: ""; /* 가상 요소에 내용을 추가 */
+    position: absolute; /* 절대 위치 지정 */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $primary-gradient;
+    opacity: 0; /* 처음에는 투명하게 설정 */
+    transition: opacity 0.2s; /* 투명도에 대한 전환 효과 지정 */
+  }
+
+  &.checked::before {
+    opacity: 1; /* checked 상태일 때 투명도를 1(불투명)로 설정 */
+  }
 }
 
 .custom-picker-wrapper {
@@ -7,31 +31,35 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background-color: rgb(250, 252, 255);
-  width: 270px;
+  background-color: #fafafa;
 
-  padding: 10px 20px;
-  border-radius: 10px;
+  @include set-vw(padding, 8px);
+  @include set-vw(border-radius, 10px);
+  @include set-vw(gap, 10px);
+  width: 100%;
+  height: 100%;
 
   cursor: pointer;
 
+  position: relative;
+  z-index: 1;
+
   .custom-picker-color {
-    width: 30px;
+    height: 100%;
     aspect-ratio: 1;
     border-radius: 100%;
-    border: 2px solid #6f6f6f;
     transition: all 0.2s;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.02);
     }
   }
 
   .custom-picker-vertical {
-    height: 30px;
-    width: 3px;
-    background-color: rgb(241, 241, 241);
+    @include set-vw(min-height, 32px);
+    height: 100%;
+    width: 0.3rem;
+    background-color: rgba(10, 10, 10, 0.05);
     border-radius: 100%;
   }
 }

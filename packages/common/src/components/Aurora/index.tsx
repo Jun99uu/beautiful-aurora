@@ -52,7 +52,7 @@ const AuroraComponent = ({
 
   return (
     <div className="aurora-wrapper" style={{ width, height, backgroundColor }}>
-      <div className="aurora-wrapper" />
+      {/* <div className="aurora-wrapper" /> */}
       {colors.map((color, idx) => (
         <div className={`circle circle-${idx}`} style={radialStyle(color)} />
       ))}

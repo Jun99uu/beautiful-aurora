@@ -1,0 +1,102 @@
+@use "sass:math";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
+* {
+  box-sizing: border-box;
+}
+
+$breakpoints: (
+  "default": null,
+  "small_mobile": 320px,
+  "basic_mobile": 375px,
+  "small_tablet": 425px,
+  "basic_tablet": 768px,
+  "small_pc": 1024px,
+  "basic_pc": 1441px,
+  "large_pc": 2560px,
+);
+
+$rates: (
+  "default": 0.7,
+  "small_mobile": 0.75,
+  "basic_mobile": 0.75,
+  "small_tablet": 0.8,
+  "basic_tablet": 0.8,
+  "small_pc": 0.85,
+  "basic_pc": 0.9,
+  "large_pc": 1,
+);
+
+@mixin set-vw($property, $px) {
+  @each $name, $width in $breakpoints {
+    $rate: map-get($rates, $name);
+
+    @if $width {
+      @media (min-width: $width) {
+        #{$property}: $px * $rate;
+      }
+    } @else {
+      #{$property}: $px * $rate;
+    }
+  }
+}
+
+@mixin set-pair-vw($property, $vertical, $horizontal) {
+  @each $name, $width in $breakpoints {
+    $rate: map-get($rates, $name);
+
+    @if $width {
+      @media (min-width: $width) {
+        #{$property}: $vertical * $rate $horizontal * $rate;
+      }
+    } @else {
+      #{$property}: $vertical * $rate $horizontal * $rate;
+    }
+  }
+}
+
+@mixin Heading1 {
+  font-family: "Covered By Your Grace", cursive;
+  @include set-vw(font-size, 24px);
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+@mixin Heading2Regular {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  @include set-vw(font-size, 21px);
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+@mixin Body1 {
+  font-family: "Covered By Your Grace", cursive;
+  @include set-vw(font-size, 18px);
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+@mixin Body2 {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  @include set-vw(font-size, 12px);
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+$primary: #1f94ff;
+$primary-gradient: linear-gradient(135deg, #30ffa0, #009efd);
+$background: #ffffff;
+$surface: #fafafa;
+$input: #f6f6f6;
+$outline: #0a0a0a1a;
+$on-surface-active: #0a0a0a;
+$on-surface-default: #0a0a0a80;
+$on-surface-muted: #0a0a0a4d;
+$on-surface-disabled: #0a0a0a0d;
