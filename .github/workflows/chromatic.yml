@@ -30,9 +30,8 @@ jobs:
       - name: List files in the current directory
         run: ls -la
 
-      - name: Deploy to Chromatic
+      - name: Run Chromatic
         uses: chromaui/action@v1
         with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.STORYBOOK_TOKEN }}
-          buildScriptName: "build-storybook"
