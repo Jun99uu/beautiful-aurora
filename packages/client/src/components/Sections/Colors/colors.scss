@@ -1,0 +1,46 @@
+@import "../../../styles/var.scss";
+
+.item-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  @include set-vw(gap, 15px);
+
+  .item-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .caption {
+      @include Body2;
+      color: $on-surface-default;
+      text-align: start;
+    }
+  }
+
+  .color-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .color-ball {
+      @include set-vw(width, 43px);
+      aspect-ratio: 1;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+
+    .vertical {
+      background-color: $on-surface-disabled;
+      width: 3px;
+      @include set-vw(height, 40px);
+      border-radius: 10px;
+    }
+  }
+}

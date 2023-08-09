@@ -1,0 +1,12 @@
+@import "../../styles/var.scss";
+
+.main-section {
+  width: 100%;
+  @include set-pair-vw(padding, 60px, 168px);
+
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  @include set-vw(gap, 92px);
+  align-items: start;
+  justify-items: start;
+}

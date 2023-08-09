@@ -1,0 +1,11 @@
+@import "../../../styles/var.scss";
+
+.recommend-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  background-color: #fafafa;
+  @include set-pair-vw(padding, 20px, 5px);
+  @include set-vw(border-radius, 10px);
+}
