@@ -12,12 +12,14 @@
   "dependencies": {
     "@aurora/common": "workspace:^",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "embla-carousel-react": "8.0.0-rc11",
     "framer-motion": "^10.15.0",
     "jotai": "^2.2.3",
     "lottie-react": "^2.4.0",
+    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0"

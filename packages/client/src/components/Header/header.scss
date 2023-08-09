@@ -1,0 +1,24 @@
+@import "../../styles/var.scss";
+
+.header-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include set-pair-vw(padding, 18px, 168px);
+  @include set-vw(height, 68px);
+
+  box-shadow: rgba(0, 0, 0, 0.045) 0px 1px 4px;
+
+  img {
+    @include set-vw(width, 151px);
+    height: auto;
+  }
+
+  .git-moticon {
+    @include set-vw(font-size, 36px);
+    cursor: pointer;
+  }
+}

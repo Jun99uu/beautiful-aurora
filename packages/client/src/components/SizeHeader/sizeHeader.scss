@@ -1,0 +1,30 @@
+@import "../../styles/var.scss";
+
+.size-header-wrapper {
+  width: 100%;
+  @include set-vw(height, 60px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include set-pair-vw(padding, 18px, 168px);
+
+  ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    @include set-vw(gap, 15px);
+  }
+
+  .caption,
+  .multiple,
+  .unit {
+    @include Heading1;
+    color: $on-surface-active;
+  }
+}
