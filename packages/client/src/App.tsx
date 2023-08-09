@@ -5,12 +5,12 @@ import SizeHeader from "./components/SizeHeader";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Header />
       <SizeHeader />
       <Canvas />
       <MainSection />
-    </>
+    </div>
   );
 }
 

@@ -8,4 +8,5 @@
   background-color: #fafafa;
   @include set-pair-vw(padding, 20px, 5px);
   @include set-vw(border-radius, 10px);
+  @include set-vw(grid-row-gap, 10px);
 }

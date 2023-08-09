@@ -6,6 +6,16 @@ import "./colors.scss";
 const Pallette = () => {
   const [colors, setColors] = useAtom(colorState);
 
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseInt(event.target.value, 10);
+    setColors((prev) => {
+      return {
+        ...prev,
+        transperant: newValue,
+      };
+    });
+  };
+
   return (
     <>
       <div className="item-container">
@@ -26,7 +36,10 @@ const Pallette = () => {
           <span className="caption">Transparency</span>
         </div>
         <div className="item-wrapper">
-          <SliderControl value={colors.transperant} />
+          <SliderControl
+            value={colors.transperant}
+            onChange={handleSliderChange}
+          />
         </div>
       </div>
     </>
