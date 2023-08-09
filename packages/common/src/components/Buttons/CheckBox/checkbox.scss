@@ -1,0 +1,67 @@
+@import "../../../scss/var.scss";
+
+.checkbox-wrapper {
+  position: relative;
+  @include set-vw(width, 400px);
+  @include set-vw(height, 60px);
+
+  label {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    @include set-vw(border-radius, 100px);
+    @include set-vw(padding, 2.4px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &::before {
+      content: ""; /* 가상 요소에 내용을 추가 */
+      position: absolute; /* 절대 위치 지정 */
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: $primary-gradient;
+      opacity: 0; /* 처음에는 투명하게 설정 */
+      transition: opacity 0.2s; /* 투명도에 대한 전환 효과 지정 */
+    }
+
+    span {
+      width: 100%;
+      height: 100%;
+      @include Heading2Regular;
+      color: $on-surface-default;
+      border: 1.5px solid $outline;
+      @include set-vw(border-radius, 100px);
+      background-color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      z-index: 1;
+
+      cursor: pointer;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    &::before {
+      opacity: 1; /* checked 상태일 때 투명도를 1(불투명)로 설정 */
+    }
+
+    span {
+      @include Heading2Regular;
+      color: $on-surface-active;
+    }
+  }
+}

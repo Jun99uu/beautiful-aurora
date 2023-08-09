@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
 $breakpoints: (
   "default": null,
   "small_mobile": 320px,
