@@ -60,7 +60,7 @@ $rates: (
 }
 
 @mixin Heading1 {
-  font-family: "Covered By Your Grace", cursive;
+  font-family: "Covered By Your Grace";
   @include set-vw(font-size, 24px);
   line-height: 150%;
   letter-spacing: 0px;
@@ -78,7 +78,7 @@ $rates: (
 }
 
 @mixin Body1 {
-  font-family: "Covered By Your Grace", cursive;
+  font-family: "Covered By Your Grace";
   @include set-vw(font-size, 18px);
   line-height: 150%;
   letter-spacing: 0px;
