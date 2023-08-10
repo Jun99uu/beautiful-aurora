@@ -8,7 +8,12 @@ interface Props extends ComponentProps<"input"> {
 const CheckBox = ({ checked, content, ...props }: Props) => {
   return (
     <div className="checkbox-wrapper">
-      <input type="checkbox" id={`checkbox-${content}`} {...props} />
+      <input
+        type="checkbox"
+        id={`checkbox-${content}`}
+        checked={checked}
+        {...props}
+      />
       <label htmlFor={`checkbox-${content}`}>
         <span>{content}</span>
       </label>

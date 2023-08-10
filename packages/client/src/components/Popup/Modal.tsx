@@ -3,7 +3,7 @@ import Portal from "./Portal";
 import "./modal.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useRef } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { useOutsideClose } from "../hooks/useOutsideClose";
 
 interface Props {
@@ -17,16 +17,26 @@ const Modal = ({ handleClose }: Props) => {
     "React & emotion (styled)",
     "React & emotion (css)",
   ];
+  const [selectIdx, setSelectIdx] = useState(-1);
+
   const ref = useRef<HTMLDivElement>(null);
   useOutsideClose(ref, handleClose);
+
+  const handleSelect = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
+    if (e.target.checked) setSelectIdx(idx);
+  };
 
   return (
     <Portal wrapperId="modal-wrapper">
       <div className="modal-background">
         <div className="modal-wrapper" ref={ref}>
           <FontAwesomeIcon icon={faXmark} className="x" onClick={handleClose} />
-          {list.map((item) => (
-            <CheckBox content={item} />
+          {list.map((item, idx) => (
+            <CheckBox
+              content={item}
+              checked={idx === selectIdx}
+              onChange={(e) => handleSelect(e, idx)}
+            />
           ))}
           <Button size="large" style={{ marginTop: "30px" }}>
             <span>click to copy</span>
