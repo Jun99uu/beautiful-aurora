@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ChangeEvent, useRef, useState } from "react";
 import { useOutsideClose } from "../hooks/useOutsideClose";
+import { useGenerator } from "@/hook/useGenerator";
 
 interface Props {
   handleClose: () => void;
@@ -18,12 +19,20 @@ const Modal = ({ handleClose }: Props) => {
     "React & emotion (css)",
   ];
   const [selectIdx, setSelectIdx] = useState(-1);
+  const { copy } = useGenerator();
 
   const ref = useRef<HTMLDivElement>(null);
   useOutsideClose(ref, handleClose);
 
   const handleSelect = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
     if (e.target.checked) setSelectIdx(idx);
+  };
+
+  const copyToClipboard = () => {
+    if (selectIdx !== -1) {
+      copy(selectIdx);
+      handleClose();
+    }
   };
 
   return (
@@ -38,7 +47,11 @@ const Modal = ({ handleClose }: Props) => {
               onChange={(e) => handleSelect(e, idx)}
             />
           ))}
-          <Button size="large" style={{ marginTop: "30px" }}>
+          <Button
+            size="large"
+            style={{ marginTop: "30px" }}
+            onClick={copyToClipboard}
+          >
             <span>click to copy</span>
           </Button>
         </div>

@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-type Size = {
+export type Size = {
   width: string;
   height: string;
 };
