@@ -2,11 +2,11 @@
 
 .main-section {
   width: 100%;
-  @include set-pair-vw(padding, 60px, 168px);
+  @include set-pair-vw(padding, 60px, 0px);
 
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  @include set-vw(gap, 92px);
-  align-items: start;
-  justify-items: start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  @include set-vw(gap, 100px);
 }
