@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         run: curl -f https://get.pnpm.io/v6.js | node - add --global pnpm
@@ -31,14 +33,8 @@ jobs:
         run: ls -la
 
       - name: Run Chromatic
-        uses: chromaui/action@v1 # Update to the latest version of Chromatic action
+        uses: chromaui/action@v1
         with:
+          working-directory: packages/common
           projectToken: ${{ secrets.STORYBOOK_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Deploy to Chromatic
-      #   uses: chromaui/action@v1
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     projectToken: ${{ secrets.STORYBOOK_TOKEN }}
-      #     buildScriptName: "build-storybook"

@@ -4,10 +4,9 @@
   position: relative;
   overflow: hidden;
 
-  @include set-vw(padding, 2.4px);
+  @include set-vw(padding, 2.3px);
   @include set-vw(border-radius, 12px);
   @include set-vw(height, 64px);
-  @include set-vw(width, 363px);
 
   &::before {
     content: ""; /* 가상 요소에 내용을 추가 */
