@@ -6,7 +6,8 @@
   "scripts": {
     "common": "pnpm -F @aurora/common",
     "client": "pnpm -F @aurora/client",
-    "setting": "pnpm -r setting"
+    "setting": "pnpm -r setting",
+    "build-storybook": "pnpm -F @aurora/common build-storybook"
   },
   "keywords": [],
   "author": ""
