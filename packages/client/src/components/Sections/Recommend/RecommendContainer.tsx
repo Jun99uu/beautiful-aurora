@@ -11,12 +11,7 @@ const RecommendContainer = () => {
 
   const handleSelectChange = (idx: number) => {
     setIsSelected(idx);
-    setColors((prev) => {
-      return {
-        ...prev,
-        color: newArr[idx].color,
-      };
-    });
+    setColors(newArr[idx]);
   };
 
   return (

@@ -22,8 +22,8 @@ $colors: 4;
   }
 
   .circle {
-    width: 250%;
-    aspect-ratio: 1;
+    width: 150%;
+    aspect-ratio: 0.8;
     margin: 0px auto;
     position: absolute;
     left: 50%;
@@ -64,13 +64,13 @@ $colors: 4;
 
 @keyframes moveAround2 {
   0% {
-    transform: translate(-40%, -60%);
+    transform: translate(30%, -80%);
   }
   50% {
     transform: translate(-30%, -50%);
   }
   100% {
-    transform: translate(-40%, -60%);
+    transform: translate(30%, -80%);
   }
 }
 
