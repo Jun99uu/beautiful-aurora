@@ -42,6 +42,25 @@
   }
 }
 
+.complete-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include set-vw(gap, 50px);
+  @include set-pair-vw(padding, 0px, 100px);
+  img {
+    @include set-vw(width, 226px);
+    height: auto;
+  }
+
+  span {
+    @include Heading1;
+    color: $on-surface-active;
+    text-align: center;
+  }
+}
+
 @keyframes bgOpen {
   from {
     opacity: 0;
