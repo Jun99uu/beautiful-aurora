@@ -1,13 +1,22 @@
 import { Recommend } from "@aurora/common";
 import { auroraColors } from "@assets/colors";
 import { useState } from "react";
+import { useAtom } from "jotai";
+import { colorState } from "@/store/colorAtom";
 
 const RecommendContainer = () => {
   const newArr = auroraColors.slice(0, 4);
+  const [_, setColors] = useAtom(colorState);
   const [isSelected, setIsSelected] = useState(-1);
 
   const handleSelectChange = (idx: number) => {
     setIsSelected(idx);
+    setColors((prev) => {
+      return {
+        ...prev,
+        color: newArr[idx].color,
+      };
+    });
   };
 
   return (

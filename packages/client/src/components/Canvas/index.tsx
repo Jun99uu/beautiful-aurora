@@ -9,9 +9,13 @@ const Canvas = () => {
       background: `radial-gradient(circle, ${color}, transparent, transparent)`,
     };
   };
+  const opacity = colors.transperant / 100;
 
   return (
-    <div className="canvas-wrapper" style={{ backgroundColor: colors.bg }}>
+    <div
+      className="canvas-wrapper"
+      style={{ backgroundColor: colors.bg, opacity }}
+    >
       {/* <div className="aurora-wrapper" /> */}
       {colors.color.map((co, idx) => (
         <div className={`circle circle-${idx}`} style={radialStyle(co)} />
