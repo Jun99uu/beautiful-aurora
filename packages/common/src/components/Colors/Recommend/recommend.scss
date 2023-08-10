@@ -48,10 +48,6 @@
     aspect-ratio: 1;
     border-radius: 100%;
     transition: all 0.2s;
-
-    &:hover {
-      transform: scale(1.02);
-    }
   }
 
   .custom-picker-vertical {

@@ -34,6 +34,16 @@
       aspect-ratio: 1;
       border-radius: 100%;
       cursor: pointer;
+      position: relative;
+
+      .color-picker {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        animation: openPicker 1s;
+      }
     }
 
     .vertical {
@@ -42,5 +52,16 @@
       @include set-vw(height, 40px);
       border-radius: 10px;
     }
+  }
+}
+
+@keyframes openPicker {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 5%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0%);
   }
 }
