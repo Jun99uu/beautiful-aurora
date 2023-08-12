@@ -50,6 +50,7 @@ jobs:
 
       # Deployment step
       - name: Deploy to S3
+        working-directory: packages/client
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --delete
