@@ -5,11 +5,15 @@ import "./colors.scss";
 import { ChromePicker } from "react-color";
 import { useRef, useState } from "react";
 import { useOutsideClose } from "@/components/hooks/useOutsideClose";
+import { cloneDeep } from "lodash";
+import { useColor } from "@/hook/useColor";
 
 const Pallette = () => {
   const [colors, setColors] = useAtom(colorState);
   const [openIdx, setOpenIdx] = useState(-1);
   const ref = useRef(null);
+
+  const { autoRecommendColors } = useColor();
 
   const openPallette = (idx: number) => {
     setOpenIdx(idx);
@@ -32,7 +36,7 @@ const Pallette = () => {
 
   const handleColorByIndex = (hex: string, idx: number) => {
     if (idx >= 0 && idx < colors.color.length) {
-      let newColors = colors.color;
+      let newColors = cloneDeep(colors.color);
       newColors[idx] = hex;
       setColors((prev) => {
         return {
@@ -40,6 +44,7 @@ const Pallette = () => {
           color: newColors,
         };
       });
+      autoRecommendColors(idx, hex);
     }
   };
 
@@ -99,7 +104,7 @@ const Pallette = () => {
         </div>
         <div className="item-wrapper">
           <SliderControl
-            value={colors.transperant}
+            value={colors.transparent}
             onChange={handleSliderChange}
           />
         </div>

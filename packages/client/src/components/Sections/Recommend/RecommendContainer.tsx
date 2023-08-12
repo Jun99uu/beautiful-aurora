@@ -1,22 +1,22 @@
 import { Recommend } from "@aurora/common";
-import { auroraColors } from "@assets/colors";
 import { useState } from "react";
 import { useAtom } from "jotai";
 import { colorState } from "@/store/colorAtom";
+import { useColor } from "@/hook/useColor";
 
 const RecommendContainer = () => {
-  const [viewColorList, setViewColorList] = useState(auroraColors.slice(0, 4));
+  const { recommendColors } = useColor();
   const [_, setColors] = useAtom(colorState);
   const [isSelected, setIsSelected] = useState(-1);
 
   const handleSelectChange = (idx: number) => {
     setIsSelected(idx);
-    setColors(viewColorList[idx]);
+    setColors(recommendColors[idx]);
   };
 
   return (
     <div className="recommend-box">
-      {viewColorList.map((color, idx) => (
+      {recommendColors.map((color, idx) => (
         <Recommend
           isSelected={idx === isSelected}
           firstColor={color.color[0]}
