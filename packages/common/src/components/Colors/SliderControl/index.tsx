@@ -12,9 +12,10 @@ const SliderControl = ({ value = 50, ...props }: SliderProps) => {
   const calculateWidth = (value: number) => {
     if (value < 5) return `${(value / 100) * 100 + 1}%`;
     if (value < 15) return `${(value / 100) * 100 + 0.8}%`;
-    if (value > 95) return `${(value / 100) * 100 - 1.2}%`;
+    if (value > 95) return `${(value / 100) * 100 - 3}%`;
+    if (value > 90) return `${(value / 100) * 100 - 2}%`;
     if (value > 85) return `${(value / 100) * 100 - 1}%`;
-    if (value === 100) return "100%";
+    if (value > 77) return `${(value / 100) * 100 - 0.8}%`;
     return `${(value / 100) * 100}%`;
   };
 

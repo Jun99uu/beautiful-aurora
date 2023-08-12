@@ -27,7 +27,7 @@
     input[type="range"] {
       -webkit-appearance: none; // 기본 스타일 제거 (크롬, 사파리)
       appearance: none;
-      width: 100%;
+      width: 103%;
       height: 12px;
       border-radius: 30px;
       background: transparent;
@@ -36,6 +36,8 @@
 
       position: relative;
       z-index: 2;
+
+      margin-left: -3%;
 
       // thumb (슬라이더 핸들)
       &::-webkit-slider-thumb {

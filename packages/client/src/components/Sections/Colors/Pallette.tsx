@@ -29,7 +29,7 @@ const Pallette = () => {
     setColors((prev) => {
       return {
         ...prev,
-        transperant: newValue,
+        transparent: newValue,
       };
     });
   };
