@@ -1,0 +1,61 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.js | node - add --global pnpm
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Common package steps
+      - name: Install common dependencies
+        working-directory: packages/common
+        run: pnpm install
+
+      - name: Build common
+        working-directory: packages/common
+        run: pnpm build
+
+      # Client package steps
+      - name: Create env file for client
+        working-directory: packages/client
+        run: |
+          touch .env
+          echo VITE_GOOGLE_ANALYTICS=${{ secrets.VITE_GOOGLE_ANALYTICS }} >> .env
+          cat .env
+
+      - name: Install client dependencies
+        working-directory: packages/client
+        run: pnpm install
+
+      - name: Build client
+        working-directory: packages/client
+        run: pnpm build
+
+      # Deployment step
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          SOURCE_DIR: "dist"
