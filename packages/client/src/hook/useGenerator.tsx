@@ -6,7 +6,7 @@ import { useState } from "react";
 
 /** HTML & CSS */
 const firstGenerator = (colors: Color, size: Size) => {
-  const transparent = colors.transperant / 100;
+  const transparent = colors.transparent / 100;
 
   const newlit = `
     ✨ Below is HTML code! (Remove this row)
@@ -125,7 +125,7 @@ const firstGenerator = (colors: Color, size: Size) => {
 
 /** React & SCSS */
 const secondGenerator = (colors: Color, size: Size) => {
-  const transparent = colors.transperant / 100;
+  const transparent = colors.transparent / 100;
 
   const newlit = `
       ✨ Below is React(typescript) code! (Remove this row)
@@ -251,7 +251,7 @@ const secondGenerator = (colors: Color, size: Size) => {
 
 /** React & emotion(styled) */
 const thirdGenerator = (colors: Color, size: Size) => {
-  const transparent = colors.transperant / 100;
+  const transparent = colors.transparent / 100;
 
   const newlit = `
         ✨ Below is React(typescript) code! (Remove this row)
@@ -372,7 +372,7 @@ const thirdGenerator = (colors: Color, size: Size) => {
 
 /** React & emotion(styled) */
 const fourthGenerator = (colors: Color, size: Size) => {
-  const transparent = colors.transperant / 100;
+  const transparent = colors.transparent / 100;
 
   const newlit = `
           ✨ Below is React(typescript) code! (Remove this row)
