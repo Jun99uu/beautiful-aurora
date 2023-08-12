@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include set-vw(gap, 8px);
 
   div {
     width: 100%;

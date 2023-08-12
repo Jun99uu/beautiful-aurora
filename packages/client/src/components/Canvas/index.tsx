@@ -9,7 +9,7 @@ const Canvas = () => {
       background: `radial-gradient(ellipse, ${color}, transparent, transparent)`,
     };
   };
-  const opacity = colors.transperant / 100;
+  const opacity = colors.transparent / 100;
 
   return (
     <div

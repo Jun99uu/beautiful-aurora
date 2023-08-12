@@ -28,6 +28,7 @@ export default [
         output: true,
         failOnError: true,
         outputStyle: "compressed",
+        fileName: "style.css",
       }),
       babel({
         exclude: "node_modules/**",

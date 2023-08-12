@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "@aurora/common/dist/assets/output-5d7c4f70.css";
+import "@aurora/common/dist/style.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@styles/global.scss";
 
