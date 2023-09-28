@@ -18,7 +18,7 @@
 
 ###  ✅ Deploy
 
-[If you want to access Beautiful Aurora Generator, click here👋](https://qve.app/)
+[If you want to access Beautiful Aurora Generator, click here👋](https://auroracss.site/)
 
 [If you wnat to access Beuatiful Aurora Storybook, click here🎨](https://64cfd58571fa7399b2d5ddea-vgxribkksm.chromatic.com/)
 
